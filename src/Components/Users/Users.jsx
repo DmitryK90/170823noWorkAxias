@@ -11,6 +11,7 @@ let Users = (props) => {
       .then(data => {
         props.setUsers(data.items);
       })
+      console.log()
     // axios
     //   .get("https://social-network.samuraijs.com/api/1.0/users")
     // .then((response) => {
