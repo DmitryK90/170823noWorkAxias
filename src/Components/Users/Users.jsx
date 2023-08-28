@@ -6,11 +6,16 @@ import userPhoto from "../../assets/images/kisspng-businessperson-computer-icons
 
 let Users = (props) => {
   if (props.users.length === 0) {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-        props.setUsers(response.data.items);
-      }); //https://social-network.samuraijs.com/docs#
+    fetch("https://social-network.samuraijs.com/api/1.0/users")
+      .then(response => response.json())
+      .then(data => {
+        props.setUsers(data.items);
+      })
+    // axios
+    //   .get("https://social-network.samuraijs.com/api/1.0/users")
+    // .then((response) => {
+    //   props.setUsers(response.data.items);
+    // }); //https://social-network.samuraijs.com/docs#
   } // через библиотеку axios делаем запрос на сервер со списком пользователей.
 
   return (
